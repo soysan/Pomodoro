@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     let colors = Colors()
     
+    static var setCount = 1
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 200, y: 100, width: 300, height: 100)
@@ -53,7 +55,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = colors.deepBlue
         
         view.addSubview(titleLabel)
@@ -67,6 +69,7 @@ class ViewController: UIViewController {
         modeButton.backgroundColor = colors.lightBlue
         modeButton.tintColor = colors.white
         
+        // MARK: titleLabel　がx軸上で真ん中にこない
         titleLabel.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
 //        titleLabel.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 2).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -80,6 +83,9 @@ class ViewController: UIViewController {
         modeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         modeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
+    override func viewDidAppear(_ animated: Bool) {
+        ViewController.setCount = 1
+     }
     
     // MARK: - Actions
     

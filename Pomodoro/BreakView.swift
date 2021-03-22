@@ -16,6 +16,14 @@ class BreakView: UIViewController {
     var timer = Timer()
     var currentTime = 5
     
+    let setLabel: UILabel = {
+       let label = UILabel()
+        label.text = " / 10"
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let timeLabel: UILabel = {
        let label = UILabel()
         label.text = ""
@@ -46,12 +54,14 @@ class BreakView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTime()
-        
+
         view.backgroundColor = colors.yellow
         
         view.addSubview(sectionLabel)
         sectionLabel.textColor = colors.white
+        
+        view.addSubview(setLabel)
+        setLabel.textColor = colors.white
         
         view.addSubview(timeLabel)
         timeLabel.text = String(currentTime)
@@ -62,7 +72,10 @@ class BreakView: UIViewController {
         resetButton.tintColor = colors.white
         
         timeLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        timeLabel.leadingAnchor.constraint(equalTo: setLabel.trailingAnchor, constant: 20).isActive = true
+
+        setLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        setLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
         sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         sectionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
@@ -70,6 +83,11 @@ class BreakView: UIViewController {
         resetButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
         resetButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateTime()
+        setLabel.text = String(ViewController.setCount) + " / 10"
     }
     
     // MARK: - Actions
@@ -88,6 +106,8 @@ class BreakView: UIViewController {
             
             if self.currentTime == 0 {
                 self.currentTime = 5
+                ViewController.setCount += 1
+                timer.invalidate()
                 self.dismiss(animated: true, completion: nil)
             }
         })

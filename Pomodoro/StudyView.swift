@@ -16,6 +16,14 @@ class StudyView: UIViewController {
     var timer = Timer()
     var currentTime = 5
     
+    let setLabel: UILabel = {
+       let label = UILabel()
+        label.text = ""
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let sectionLabel: UILabel = {
         let label = UILabel()
         label.text = "Concentration"
@@ -37,6 +45,7 @@ class StudyView: UIViewController {
         button.setTitle("Reset", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
+        // MARK: Breakの方もだがresetを押すとwindow hierarchyエラーになる。(データを消せないか？）
         button.addTarget(self, action: #selector(goBack(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -46,12 +55,14 @@ class StudyView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTime()
-        
+
         view.backgroundColor = colors.deepBlue
         
         view.addSubview(sectionLabel)
         sectionLabel.textColor = colors.white
+        
+        view.addSubview(setLabel)
+        setLabel.textColor = colors.white
         
         view.addSubview(timeLabel)
         timeLabel.text = String(currentTime)
@@ -62,14 +73,21 @@ class StudyView: UIViewController {
         resetButton.tintColor = colors.white
         
         timeLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        timeLabel.leadingAnchor.constraint(equalTo: setLabel.trailingAnchor, constant: 20).isActive = true
 
         sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         sectionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
+        setLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        setLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        
         resetButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
         resetButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        setLabel.text = String(ViewController.setCount) + " / 10"
+        updateTime()
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,6 +110,7 @@ class StudyView: UIViewController {
             
             if self.currentTime == 0 {
                 self.currentTime = 5
+                timer.invalidate()
                 let nextView = BreakView()
                 nextView.modalPresentationStyle = .fullScreen
                 nextView.modalTransitionStyle = .crossDissolve
