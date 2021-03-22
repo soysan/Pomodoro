@@ -23,7 +23,7 @@ class StudyView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = colors.yellow
+        view.backgroundColor = colors.deepBlue
         view.addSubview(backButton)
         backButton.backgroundColor = colors.lightBlue
         backButton.tintColor = colors.white

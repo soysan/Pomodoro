@@ -87,14 +87,16 @@ class ViewController: UIViewController {
     func startTimer(_ sender: UIButton) {
         let nextView = StudyView()
         nextView.modalPresentationStyle = .fullScreen
+        nextView.modalTransitionStyle = .crossDissolve
         present(nextView, animated: true, completion: nil)
     }
     
     @objc
     func goToSetting(_ sender: UIButton) {
         let nextView = SettingView()
-        let naviViewController = UINavigationController(rootViewController: nextView)
-        self.present(naviViewController, animated: true, completion: nil)
+        nextView.modalPresentationStyle = .fullScreen
+        nextView.modalTransitionStyle = .crossDissolve
+        present(nextView, animated: true, completion: nil)
     }
     
     // MARK: - Helpers
