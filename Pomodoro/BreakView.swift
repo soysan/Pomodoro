@@ -13,6 +13,17 @@ class BreakView: UIViewController {
     
     let colors = Colors()
     
+    var timer = Timer()
+    var currentTime = 5
+    
+    let timeLabel: UILabel = {
+       let label = UILabel()
+        label.text = ""
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let sectionLabel: UILabel = {
         let label = UILabel()
         label.text = "Break"
@@ -35,15 +46,23 @@ class BreakView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTime()
         
         view.backgroundColor = colors.yellow
         
         view.addSubview(sectionLabel)
         sectionLabel.textColor = colors.white
         
+        view.addSubview(timeLabel)
+        timeLabel.text = String(currentTime)
+        timeLabel.textColor = colors.white
+        
         view.addSubview(resetButton)
         resetButton.backgroundColor = colors.lightBlue
         resetButton.tintColor = colors.white
+        
+        timeLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
         sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         sectionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
@@ -62,4 +81,15 @@ class BreakView: UIViewController {
 
     // MARK: - Helpers
 
+    func updateTime() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            self.currentTime -= 1
+            self.timeLabel.text = String(self.currentTime)
+            
+            if self.currentTime == 0 {
+                self.currentTime = 5
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+    }
 }

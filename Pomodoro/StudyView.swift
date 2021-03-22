@@ -41,18 +41,7 @@ class StudyView: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    let startButton: UIButton = {
-        let button = UIButton()
-        button.frame = CGRect(x: 100, y: 100, width: 200, height: 100)
-        button.setTitle("Start", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(startTimer(_:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
+
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -74,14 +63,7 @@ class StudyView: UIViewController {
         
         timeLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        
-        view.addSubview(startButton)
-        startButton.backgroundColor = colors.lightBlue
-        startButton.tintColor = colors.white
-        startButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        
+
         sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         sectionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
@@ -95,24 +77,12 @@ class StudyView: UIViewController {
     }
     
     // MARK: - Actions
-    
-    @objc
-    func countDown() {
-        
-    }
 
     @objc
     func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc
-    func startTimer(_ sender: UIButton) {
-        let nextView = BreakView()
-        nextView.modalPresentationStyle = .fullScreen
-        nextView.modalTransitionStyle = .crossDissolve
-        present(nextView, animated: true, completion: nil)
-    }
     // MARK: - Helpers
     
     func updateTime() {
@@ -121,6 +91,7 @@ class StudyView: UIViewController {
             self.timeLabel.text = String(self.currentTime)
             
             if self.currentTime == 0 {
+                self.currentTime = 5
                 let nextView = BreakView()
                 nextView.modalPresentationStyle = .fullScreen
                 nextView.modalTransitionStyle = .crossDissolve
