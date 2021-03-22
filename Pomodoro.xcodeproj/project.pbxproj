@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FA043A726085F0B000639EC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A626085F0B000639EC /* Colors.swift */; };
+		2FA043AA2608648C000639EC /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A92608648C000639EC /* StudyView.swift */; };
 		2FB1BBCF260834D3007D74C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBCE260834D3007D74C7 /* AppDelegate.swift */; };
 		2FB1BBD1260834D3007D74C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBD0260834D3007D74C7 /* SceneDelegate.swift */; };
 		2FB1BBD3260834D3007D74C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBD2260834D3007D74C7 /* ViewController.swift */; };
 		2FB1BBD8260834D5007D74C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FB1BBD7260834D5007D74C7 /* Assets.xcassets */; };
+		2FB1BBEC26083E59007D74C7 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBEB26083E59007D74C7 /* ButtonViewController.swift */; };
+		2FB1BBEF260852ED007D74C7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBEE260852ED007D74C7 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2FB1BBCB260834D3007D74C7 /* Pomorodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomorodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FA043A626085F0B000639EC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2FA043A92608648C000639EC /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		2FB1BBCB260834D3007D74C7 /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FB1BBCE260834D3007D74C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FB1BBD0260834D3007D74C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2FB1BBD2260834D3007D74C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2FB1BBD7260834D5007D74C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FB1BBDC260834D5007D74C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FB1BBEB26083E59007D74C7 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
+		2FB1BBEE260852ED007D74C7 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +44,7 @@
 		2FB1BBC2260834D3007D74C7 = {
 			isa = PBXGroup;
 			children = (
-				2FB1BBCD260834D3007D74C7 /* Pomorodo */,
+				2FB1BBCD260834D3007D74C7 /* Pomodoro */,
 				2FB1BBCC260834D3007D74C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,29 +53,33 @@
 		2FB1BBCC260834D3007D74C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2FB1BBCB260834D3007D74C7 /* Pomorodo.app */,
+				2FB1BBCB260834D3007D74C7 /* Pomodoro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2FB1BBCD260834D3007D74C7 /* Pomorodo */ = {
+		2FB1BBCD260834D3007D74C7 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
 				2FB1BBCE260834D3007D74C7 /* AppDelegate.swift */,
 				2FB1BBD0260834D3007D74C7 /* SceneDelegate.swift */,
 				2FB1BBD2260834D3007D74C7 /* ViewController.swift */,
+				2FA043A626085F0B000639EC /* Colors.swift */,
+				2FB1BBEE260852ED007D74C7 /* Functions.swift */,
+				2FA043A92608648C000639EC /* StudyView.swift */,
+				2FB1BBEB26083E59007D74C7 /* ButtonViewController.swift */,
 				2FB1BBD7260834D5007D74C7 /* Assets.xcassets */,
 				2FB1BBDC260834D5007D74C7 /* Info.plist */,
 			);
-			path = Pomorodo;
+			path = Pomodoro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2FB1BBCA260834D3007D74C7 /* Pomorodo */ = {
+		2FB1BBCA260834D3007D74C7 /* Pomodoro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FB1BBDF260834D5007D74C7 /* Build configuration list for PBXNativeTarget "Pomorodo" */;
+			buildConfigurationList = 2FB1BBDF260834D5007D74C7 /* Build configuration list for PBXNativeTarget "Pomodoro" */;
 			buildPhases = (
 				2FB1BBC7260834D3007D74C7 /* Sources */,
 				2FB1BBC8260834D3007D74C7 /* Frameworks */,
@@ -77,9 +89,9 @@
 			);
 			dependencies = (
 			);
-			name = Pomorodo;
+			name = Pomodoro;
 			productName = Pomorodo;
-			productReference = 2FB1BBCB260834D3007D74C7 /* Pomorodo.app */;
+			productReference = 2FB1BBCB260834D3007D74C7 /* Pomodoro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2FB1BBC6260834D3007D74C7 /* Build configuration list for PBXProject "Pomorodo" */;
+			buildConfigurationList = 2FB1BBC6260834D3007D74C7 /* Build configuration list for PBXProject "Pomodoro" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2FB1BBCA260834D3007D74C7 /* Pomorodo */,
+				2FB1BBCA260834D3007D74C7 /* Pomodoro */,
 			);
 		};
 /* End PBXProject section */
@@ -130,8 +142,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA043AA2608648C000639EC /* StudyView.swift in Sources */,
+				2FB1BBEC26083E59007D74C7 /* ButtonViewController.swift in Sources */,
+				2FA043A726085F0B000639EC /* Colors.swift in Sources */,
 				2FB1BBD3260834D3007D74C7 /* ViewController.swift in Sources */,
 				2FB1BBCF260834D3007D74C7 /* AppDelegate.swift in Sources */,
+				2FB1BBEF260852ED007D74C7 /* Functions.swift in Sources */,
 				2FB1BBD1260834D3007D74C7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,12 +278,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P767W7DT8L;
-				INFOPLIST_FILE = Pomorodo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pomodoro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtMasa.Pomorodo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtMasa.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -281,12 +297,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P767W7DT8L;
-				INFOPLIST_FILE = Pomorodo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pomodoro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtMasa.Pomorodo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtMasa.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -296,7 +312,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FB1BBC6260834D3007D74C7 /* Build configuration list for PBXProject "Pomorodo" */ = {
+		2FB1BBC6260834D3007D74C7 /* Build configuration list for PBXProject "Pomodoro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FB1BBDD260834D5007D74C7 /* Debug */,
@@ -305,7 +321,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FB1BBDF260834D5007D74C7 /* Build configuration list for PBXNativeTarget "Pomorodo" */ = {
+		2FB1BBDF260834D5007D74C7 /* Build configuration list for PBXNativeTarget "Pomodoro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FB1BBE0260834D5007D74C7 /* Debug */,
