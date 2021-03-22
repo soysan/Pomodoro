@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FA043A726085F0B000639EC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A626085F0B000639EC /* Colors.swift */; };
 		2FA043AA2608648C000639EC /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A92608648C000639EC /* StudyView.swift */; };
+		2FA043AD26088202000639EC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043AC26088202000639EC /* SettingView.swift */; };
 		2FB1BBCF260834D3007D74C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBCE260834D3007D74C7 /* AppDelegate.swift */; };
 		2FB1BBD1260834D3007D74C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBD0260834D3007D74C7 /* SceneDelegate.swift */; };
 		2FB1BBD3260834D3007D74C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB1BBD2260834D3007D74C7 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		2FA043A626085F0B000639EC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2FA043A92608648C000639EC /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		2FA043AC26088202000639EC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		2FB1BBCB260834D3007D74C7 /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FB1BBCE260834D3007D74C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FB1BBD0260834D3007D74C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				2FA043A626085F0B000639EC /* Colors.swift */,
 				2FB1BBEE260852ED007D74C7 /* Functions.swift */,
 				2FA043A92608648C000639EC /* StudyView.swift */,
+				2FA043AC26088202000639EC /* SettingView.swift */,
 				2FB1BBEB26083E59007D74C7 /* ButtonViewController.swift */,
 				2FB1BBD7260834D5007D74C7 /* Assets.xcassets */,
 				2FB1BBDC260834D5007D74C7 /* Info.plist */,
@@ -147,6 +150,7 @@
 				2FA043A726085F0B000639EC /* Colors.swift in Sources */,
 				2FB1BBD3260834D3007D74C7 /* ViewController.swift in Sources */,
 				2FB1BBCF260834D3007D74C7 /* AppDelegate.swift in Sources */,
+				2FA043AD26088202000639EC /* SettingView.swift in Sources */,
 				2FB1BBEF260852ED007D74C7 /* Functions.swift in Sources */,
 				2FB1BBD1260834D3007D74C7 /* SceneDelegate.swift in Sources */,
 			);

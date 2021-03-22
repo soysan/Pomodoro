@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.frame = CGRect(x: 200, y: 100, width: 300, height: 100)
         label.text = "Pomodoro Timer"
         label.font = UIFont.boldSystemFont(ofSize: 68)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,9 +29,22 @@ class ViewController: UIViewController {
     
     let startButton: UIButton = {
         let button = UIButton()
-//        button.frame = CGRect(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height - 50, width: 100, height: 40)
+        button.frame = CGRect(x: 100, y: 100, width: 200, height: 100)
         button.setTitle("Start", for: .normal)
-        button.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(startTimer(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let modeButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        button.setTitle("Mode Setting", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(goToSetting(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -49,21 +63,38 @@ class ViewController: UIViewController {
         startButton.backgroundColor = colors.lightBlue
         startButton.tintColor = colors.white
         
-        NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            startButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
-        ])
+        view.addSubview(modeButton)
+        modeButton.backgroundColor = colors.lightBlue
+        modeButton.tintColor = colors.white
+        
+        titleLabel.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+//        titleLabel.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 2).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -60).isActive = true
+        
+        startButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        startButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
+        startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        modeButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        modeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        modeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
     
     // MARK: - Actions
     
     @objc
-    func startTimer() {
+    func startTimer(_ sender: UIButton) {
         let nextView = StudyView()
         nextView.modalPresentationStyle = .fullScreen
         present(nextView, animated: true, completion: nil)
+    }
+    
+    @objc
+    func goToSetting(_ sender: UIButton) {
+        let nextView = SettingView()
+        let naviViewController = UINavigationController(rootViewController: nextView)
+        self.present(naviViewController, animated: true, completion: nil)
     }
     
     // MARK: - Helpers
