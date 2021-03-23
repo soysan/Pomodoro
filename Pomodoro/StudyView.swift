@@ -14,8 +14,9 @@ class StudyView: UIViewController {
     let colors = Colors()
     
     var timer = Timer()
-    var currentTime = ViewController.is_50mins ? 3000 : 1500;
-    
+//    var currentTime = ViewController.is_50mins ? 3000 : 1500;
+    var currentTime = 5
+
     let setLabel: UILabel = {
         let label = UILabel()
         label.text = ""
@@ -133,7 +134,8 @@ class StudyView: UIViewController {
             self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
             
             if self.currentTime == 0 {
-                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
+//                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
+                self.currentTime = 5
                 timer.invalidate()
                 let nextView = BreakView()
                 nextView.modalPresentationStyle = .fullScreen

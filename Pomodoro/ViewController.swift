@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Pomorodo
+//  Pomodoro
 //
 //  Created by 山口雅之 on 2021/03/22.
 //
@@ -74,16 +74,13 @@ class ViewController: UIViewController {
         view.addSubview(modeButton)
         modeButton.backgroundColor = colors.lightBlue
         modeButton.tintColor = colors.white
-        print(ViewController.is_50mins)
-        // MARK: titleLabel　がx軸上で真ん中にこない
-        titleLabel.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
-//        titleLabel.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 2).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -60).isActive = true
+        
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
         
         startButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         startButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
-        startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         modeButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         modeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true

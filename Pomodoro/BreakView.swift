@@ -14,7 +14,8 @@ class BreakView: UIViewController {
     let colors = Colors()
     
     var timer = Timer()
-    var currentTime = ViewController.is_50mins ? 600 : 300;
+//    var currentTime = ViewController.is_50mins ? 600 : 300;
+    var currentTime = 5
     
     let setLabel: UILabel = {
        let label = UILabel()
@@ -128,9 +129,10 @@ class BreakView: UIViewController {
             self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
             
             if self.currentTime == 0 {
-                self.currentTime = ViewController.is_50mins ? 600 : 300;
-                ViewController.setCount += 1
+//                self.currentTime = ViewController.is_50mins ? 600 : 300;
+                self.currentTime = 5
                 timer.invalidate()
+                ViewController.setCount += 1
                 self.dismiss(animated: true, completion: nil)
             }
         })
