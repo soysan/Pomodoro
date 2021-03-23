@@ -18,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4E784D2609D23C008F5C88 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2FA043A626085F0B000639EC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2FA043A92608648C000639EC /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		2FA043AC26088202000639EC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				2FB36FBA2608A04E00D62C31 /* BreakView.swift */,
 				2FA043A626085F0B000639EC /* Colors.swift */,
 				2FA043A92608648C000639EC /* StudyView.swift */,
+				2F4E784D2609D23C008F5C88 /* README.md */,
 				2FA043AC26088202000639EC /* SettingView.swift */,
 				2FB1BBD7260834D5007D74C7 /* Assets.xcassets */,
 				2FB1BBDC260834D5007D74C7 /* Info.plist */,
