@@ -14,10 +14,10 @@ class StudyView: UIViewController {
     let colors = Colors()
     
     var timer = Timer()
-    var currentTime = 5
+    var currentTime = 1500
     
     let setLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,9 +32,17 @@ class StudyView: UIViewController {
         return label
     }()
     
-    let timeLabel: UILabel = {
-       let label = UILabel()
+    let minsLabel: UILabel = {
+        let label = UILabel()
         label.text = ""
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let secLabel: UILabel = {
+        let label = UILabel()
+        label.text = "00"
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,12 +58,12 @@ class StudyView: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = colors.deepBlue
         
         view.addSubview(sectionLabel)
@@ -64,17 +72,24 @@ class StudyView: UIViewController {
         view.addSubview(setLabel)
         setLabel.textColor = colors.white
         
-        view.addSubview(timeLabel)
-        timeLabel.text = String(currentTime)
-        timeLabel.textColor = colors.white
+        view.addSubview(minsLabel)
+        minsLabel.text = String(currentTime)
+        minsLabel.textColor = colors.white
+        
+        view.addSubview(secLabel)
+        secLabel.text = String(currentTime)
+        secLabel.textColor = colors.white
         
         view.addSubview(resetButton)
         resetButton.backgroundColor = colors.lightBlue
         resetButton.tintColor = colors.white
         
-        timeLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        timeLabel.leadingAnchor.constraint(equalTo: setLabel.trailingAnchor, constant: 20).isActive = true
-
+        minsLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        minsLabel.leadingAnchor.constraint(equalTo: setLabel.trailingAnchor, constant: 20).isActive = true
+        
+        secLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        secLabel.leadingAnchor.constraint(equalTo: minsLabel.trailingAnchor, constant: 10).isActive = true
+        
         sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         sectionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
@@ -85,6 +100,7 @@ class StudyView: UIViewController {
         resetButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         setLabel.text = String(ViewController.setCount) + " / 10"
         updateTime()
@@ -95,7 +111,7 @@ class StudyView: UIViewController {
     }
     
     // MARK: - Actions
-
+    
     @objc
     func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -106,10 +122,14 @@ class StudyView: UIViewController {
     func updateTime() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             self.currentTime -= 1
-            self.timeLabel.text = String(self.currentTime)
+            
+            let currentMin = self.currentTime / 60
+            self.minsLabel.text = currentMin < 10 ? "0" + String(currentMin) : String(currentMin);
+            let currentSec = self.currentTime % 60
+            self.secLabel.text = currentSec < 10 ? "0" + String(currentSec) : String(currentSec);
             
             if self.currentTime == 0 {
-                self.currentTime = 5
+                self.currentTime = 1500
                 timer.invalidate()
                 let nextView = BreakView()
                 nextView.modalPresentationStyle = .fullScreen
