@@ -73,11 +73,11 @@ class StudyView: UIViewController {
         setLabel.textColor = colors.white
         
         view.addSubview(minsLabel)
-        minsLabel.text = String(currentTime)
+        minsLabel.text = String(currentTime / 60)
         minsLabel.textColor = colors.white
         
         view.addSubview(secLabel)
-        secLabel.text = String(currentTime)
+        secLabel.text = ": 00"
         secLabel.textColor = colors.white
         
         view.addSubview(resetButton)
@@ -88,7 +88,7 @@ class StudyView: UIViewController {
         minsLabel.leadingAnchor.constraint(equalTo: setLabel.trailingAnchor, constant: 20).isActive = true
         
         secLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        secLabel.leadingAnchor.constraint(equalTo: minsLabel.trailingAnchor, constant: 10).isActive = true
+        secLabel.leadingAnchor.constraint(equalTo: minsLabel.trailingAnchor, constant: 8).isActive = true
         
         sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         sectionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
@@ -126,7 +126,7 @@ class StudyView: UIViewController {
             let currentMin = self.currentTime / 60
             self.minsLabel.text = currentMin < 10 ? "0" + String(currentMin) : String(currentMin);
             let currentSec = self.currentTime % 60
-            self.secLabel.text = currentSec < 10 ? "0" + String(currentSec) : String(currentSec);
+            self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
             
             if self.currentTime == 0 {
                 self.currentTime = 1500
