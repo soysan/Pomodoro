@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     let colors = Colors()
     
     static var setCount = 1
+    static var is_50mins = false
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 200, y: 100, width: 300, height: 100)
         label.text = "Pomodoro Timer"
         label.font = UIFont.boldSystemFont(ofSize: 68)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,10 +31,13 @@ class ViewController: UIViewController {
     
     let startButton: UIButton = {
         let button = UIButton()
-        button.frame = CGRect(x: 100, y: 100, width: 200, height: 100)
         button.setTitle("Start", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 20
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 10
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(startTimer(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -42,10 +45,13 @@ class ViewController: UIViewController {
     
     let modeButton: UIButton = {
         let button = UIButton()
-        button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         button.setTitle("Mode Setting", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 10
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(goToSetting(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -68,7 +74,7 @@ class ViewController: UIViewController {
         view.addSubview(modeButton)
         modeButton.backgroundColor = colors.lightBlue
         modeButton.tintColor = colors.white
-        
+        print(ViewController.is_50mins)
         // MARK: titleLabel　がx軸上で真ん中にこない
         titleLabel.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
 //        titleLabel.heightAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: 2).isActive = true

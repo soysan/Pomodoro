@@ -14,7 +14,7 @@ class StudyView: UIViewController {
     let colors = Colors()
     
     var timer = Timer()
-    var currentTime = 1500
+    var currentTime = ViewController.is_50mins ? 3000 : 1500;
     
     let setLabel: UILabel = {
         let label = UILabel()
@@ -53,6 +53,10 @@ class StudyView: UIViewController {
         button.setTitle("Reset", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 10
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 10, height: 10)
         // MARK: Breakの方もだがresetを押すとwindow hierarchyエラーになる。(データを消せないか？）
         button.addTarget(self, action: #selector(goBack(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -129,7 +133,7 @@ class StudyView: UIViewController {
             self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
             
             if self.currentTime == 0 {
-                self.currentTime = 1500
+                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
                 timer.invalidate()
                 let nextView = BreakView()
                 nextView.modalPresentationStyle = .fullScreen

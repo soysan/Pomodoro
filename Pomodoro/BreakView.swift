@@ -14,7 +14,7 @@ class BreakView: UIViewController {
     let colors = Colors()
     
     var timer = Timer()
-    var currentTime = 300
+    var currentTime = ViewController.is_50mins ? 600 : 300;
     
     let setLabel: UILabel = {
        let label = UILabel()
@@ -53,6 +53,10 @@ class BreakView: UIViewController {
         button.setTitle("Reset", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 10
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 10
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(goBack(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -124,7 +128,7 @@ class BreakView: UIViewController {
             self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
             
             if self.currentTime == 0 {
-                self.currentTime = 300
+                self.currentTime = ViewController.is_50mins ? 600 : 300;
                 ViewController.setCount += 1
                 timer.invalidate()
                 self.dismiss(animated: true, completion: nil)
