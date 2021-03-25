@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     
@@ -75,16 +76,22 @@ class ViewController: UIViewController {
         modeButton.backgroundColor = colors.lightBlue
         modeButton.tintColor = colors.white
         
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
+        titleLabel.snp.makeConstraints({ make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-60)
+        })
         
-        startButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        startButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
-        startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        startButton.snp.makeConstraints({ make in
+            make.width.equalTo(200)
+            make.top.equalTo(titleLabel.snp.bottom).offset(50)
+            make.centerX.equalToSuperview()
+        })
         
-        modeButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        modeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        modeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        modeButton.snp.makeConstraints({ make in
+            make.width.equalTo(200)
+            make.bottom.equalToSuperview().offset(-20)
+            make.trailing.equalToSuperview().offset(-20)
+        })
     }
     override func viewDidAppear(_ animated: Bool) {
         ViewController.setCount = 1
