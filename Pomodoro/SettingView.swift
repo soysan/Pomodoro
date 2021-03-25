@@ -73,17 +73,23 @@ class SettingView: UIViewController {
         mode_50Button.backgroundColor = colors.lightBlue
         mode_50Button.tintColor = colors.white
         
-        resetButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        resetButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        resetButton.snp.makeConstraints({ make in
+            make.width.equalTo(70)
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(20)
+        })
         
-        mode_25Button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
-        mode_25Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        mode_25Button.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -300).isActive = true
+        mode_25Button.snp.makeConstraints({ make in
+            make.centerY.equalToSuperview().offset(-50)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().offset(-300)
+        })
         
-        mode_50Button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
-        mode_50Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        mode_50Button.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -300).isActive = true
+        mode_50Button.snp.makeConstraints({ make in
+            make.centerY.equalToSuperview().offset(50)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().offset(-300)
+        })
         
     }
     
