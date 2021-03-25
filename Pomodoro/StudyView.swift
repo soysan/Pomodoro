@@ -91,21 +91,27 @@ class StudyView: UIViewController {
         resetButton.backgroundColor = colors.lightBlue
         resetButton.tintColor = colors.white
         
-        minsLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        minsLabel.leadingAnchor.constraint(equalTo: setLabel.trailingAnchor, constant: 20).isActive = true
-        
-        secLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        secLabel.leadingAnchor.constraint(equalTo: minsLabel.trailingAnchor, constant: 8).isActive = true
-        
-        sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        sectionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
-        setLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        setLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        
-        resetButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        resetButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        resetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        minsLabel.snp.makeConstraints({ make in
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalTo(setLabel.snp.trailing).offset(20)
+        })
+        secLabel.snp.makeConstraints({ make in
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalTo(minsLabel.snp.trailing).offset(8)
+        })
+        sectionLabel.snp.makeConstraints({ make in
+            make.top.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        })
+        setLabel.snp.makeConstraints({ make in
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(20)
+        })
+        resetButton.snp.makeConstraints({ make in
+            make.width.equalTo(70)
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(20)
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
