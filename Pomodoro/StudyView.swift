@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class StudyView: UIViewController {
     
     // MARK: - Properties
     
     let colors = Colors()
+    var avPlayer: AVAudioPlayer!
     
     var timer = Timer()
 //    var currentTime = ViewController.is_50mins ? 3000 : 1500;
@@ -124,6 +126,20 @@ class StudyView: UIViewController {
     
     // MARK: - Helpers
     
+    func fireSound() {
+        let pathToSound = Bundle.main.path(forResource: "zihou", ofType: "mp3")!
+        let url = URL(fileURLWithPath: pathToSound)
+        
+        do {
+            // MARK: no crash but No factory registered for id
+            avPlayer = try AVAudioPlayer(contentsOf: url)
+            avPlayer.prepareToPlay()
+            avPlayer.play()
+        } catch {
+            print(error)
+        }
+    }
+    
     func updateTime() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             self.currentTime -= 1
@@ -132,6 +148,8 @@ class StudyView: UIViewController {
             self.minsLabel.text = currentMin < 10 ? "0" + String(currentMin) : String(currentMin);
             let currentSec = self.currentTime % 60
             self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
+            
+            if self.currentTime == 3 { self.fireSound() }
             
             if self.currentTime == 0 {
 //                self.currentTime = ViewController.is_50mins ? 3000 : 1500;

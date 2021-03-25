@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F6427DB260C6EA400BFF153 /* zihou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F6427DA260C6EA400BFF153 /* zihou.mp3 */; };
 		2FA043A726085F0B000639EC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A626085F0B000639EC /* Colors.swift */; };
 		2FA043AA2608648C000639EC /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A92608648C000639EC /* StudyView.swift */; };
 		2FA043AD26088202000639EC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043AC26088202000639EC /* SettingView.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		2F4E784D2609D23C008F5C88 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2F6427DA260C6EA400BFF153 /* zihou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zihou.mp3; sourceTree = "<group>"; };
 		2FA043A626085F0B000639EC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2FA043A92608648C000639EC /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		2FA043AC26088202000639EC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -42,9 +44,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F6427D9260C6E8E00BFF153 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				2F6427DA260C6EA400BFF153 /* zihou.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		2FB1BBC2260834D3007D74C7 = {
 			isa = PBXGroup;
 			children = (
+				2F6427D9260C6E8E00BFF153 /* Music */,
 				2FB1BBCD260834D3007D74C7 /* Pomodoro */,
 				2FB1BBCC260834D3007D74C7 /* Products */,
 			);
@@ -134,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6427DB260C6EA400BFF153 /* zihou.mp3 in Resources */,
 				2FB1BBD8260834D5007D74C7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P767W7DT8L;
 				INFOPLIST_FILE = "$(SRCROOT)/Pomodoro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,6 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P767W7DT8L;
 				INFOPLIST_FILE = "$(SRCROOT)/Pomodoro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
