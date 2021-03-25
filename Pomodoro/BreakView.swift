@@ -87,7 +87,44 @@ class BreakView: UIViewController {
         view.addSubview(resetButton)
         resetButton.backgroundColor = colors.lightBlue
         resetButton.tintColor = colors.white
+        
+        setPosition()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateTime()
+        setLabel.text = String(ViewController.setCount) + " / 10"
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func goBack(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
+    func updateTime() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            self.currentTime -= 1
+            
+            let currentMin = self.currentTime / 60
+            self.minsLabel.text = currentMin < 10 ? "0" + String(currentMin) : String(currentMin);
+            let currentSec = self.currentTime % 60
+            self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
+            
+            if self.currentTime == 0 {
+//                self.currentTime = ViewController.is_50mins ? 600 : 300;
+                self.currentTime = 5
+                timer.invalidate()
+                ViewController.setCount += 1
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+    }
+    
+    // MARK: - Helpers
+
+    func setPosition() {
         minsLabel.snp.makeConstraints({ make in
             make.bottom.equalToSuperview().offset(-20)
             make.leading.equalTo(setLabel.snp.trailing).offset(20)
@@ -108,39 +145,6 @@ class BreakView: UIViewController {
             make.width.equalTo(70)
             make.top.equalToSuperview().offset(20)
             make.leading.equalToSuperview().offset(20)
-        })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        updateTime()
-        setLabel.text = String(ViewController.setCount) + " / 10"
-    }
-    
-    // MARK: - Actions
-    
-    @objc
-    func goBack(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    // MARK: - Helpers
-
-    func updateTime() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            self.currentTime -= 1
-            
-            let currentMin = self.currentTime / 60
-            self.minsLabel.text = currentMin < 10 ? "0" + String(currentMin) : String(currentMin);
-            let currentSec = self.currentTime % 60
-            self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
-            
-            if self.currentTime == 0 {
-//                self.currentTime = ViewController.is_50mins ? 600 : 300;
-                self.currentTime = 5
-                timer.invalidate()
-                ViewController.setCount += 1
-                self.dismiss(animated: true, completion: nil)
-            }
         })
     }
 }

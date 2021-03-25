@@ -73,24 +73,7 @@ class SettingView: UIViewController {
         mode_50Button.backgroundColor = colors.lightBlue
         mode_50Button.tintColor = colors.white
         
-        resetButton.snp.makeConstraints({ make in
-            make.width.equalTo(70)
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-        })
-        
-        mode_25Button.snp.makeConstraints({ make in
-            make.centerY.equalToSuperview().offset(-50)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().offset(-300)
-        })
-        
-        mode_50Button.snp.makeConstraints({ make in
-            make.centerY.equalToSuperview().offset(50)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().offset(-300)
-        })
-        
+        setPosition()
     }
     
     // MARK: - Actions
@@ -113,5 +96,23 @@ class SettingView: UIViewController {
         mode_25Button.backgroundColor = colors.lightBlue
         mode_50Button.backgroundColor = colors.yellow
     }
+    
     // MARK: - Helpers
+    func setPosition() {
+        resetButton.snp.makeConstraints({ make in
+            make.width.equalTo(70)
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(20)
+        })
+        mode_25Button.snp.makeConstraints({ make in
+            make.centerY.equalToSuperview().offset(-50)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().offset(-300)
+        })
+        mode_50Button.snp.makeConstraints({ make in
+            make.centerY.equalToSuperview().offset(50)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().offset(-300)
+        })
+    }
 }

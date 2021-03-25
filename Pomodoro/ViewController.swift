@@ -76,22 +76,7 @@ class ViewController: UIViewController {
         modeButton.backgroundColor = colors.lightBlue
         modeButton.tintColor = colors.white
         
-        titleLabel.snp.makeConstraints({ make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-60)
-        })
-        
-        startButton.snp.makeConstraints({ make in
-            make.width.equalTo(200)
-            make.top.equalTo(titleLabel.snp.bottom).offset(50)
-            make.centerX.equalToSuperview()
-        })
-        
-        modeButton.snp.makeConstraints({ make in
-            make.width.equalTo(200)
-            make.bottom.equalToSuperview().offset(-20)
-            make.trailing.equalToSuperview().offset(-20)
-        })
+        setPosition()
     }
     override func viewDidAppear(_ animated: Bool) {
         ViewController.setCount = 1
@@ -116,5 +101,22 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    
+    func setPosition() {
+        titleLabel.snp.makeConstraints({ make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-60)
+        })
+        startButton.snp.makeConstraints({ make in
+            make.width.equalTo(200)
+            make.top.equalTo(titleLabel.snp.bottom).offset(50)
+            make.centerX.equalToSuperview()
+        })
+        modeButton.snp.makeConstraints({ make in
+            make.width.equalTo(200)
+            make.bottom.equalToSuperview().offset(-20)
+            make.trailing.equalToSuperview().offset(-20)
+        })
+    }
 }
 

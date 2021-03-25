@@ -91,27 +91,7 @@ class StudyView: UIViewController {
         resetButton.backgroundColor = colors.lightBlue
         resetButton.tintColor = colors.white
         
-        minsLabel.snp.makeConstraints({ make in
-            make.bottom.equalToSuperview().offset(-20)
-            make.leading.equalTo(setLabel.snp.trailing).offset(20)
-        })
-        secLabel.snp.makeConstraints({ make in
-            make.bottom.equalToSuperview().offset(-20)
-            make.leading.equalTo(minsLabel.snp.trailing).offset(8)
-        })
-        sectionLabel.snp.makeConstraints({ make in
-            make.top.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-        })
-        setLabel.snp.makeConstraints({ make in
-            make.bottom.equalToSuperview().offset(-20)
-            make.leading.equalToSuperview().offset(20)
-        })
-        resetButton.snp.makeConstraints({ make in
-            make.width.equalTo(70)
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-        })
+        setPosition()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -129,8 +109,6 @@ class StudyView: UIViewController {
     func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    // MARK: - Helpers
     
     func fireSound() {
         let pathToSound = Bundle.main.path(forResource: "zihou", ofType: "mp3")!
@@ -166,6 +144,32 @@ class StudyView: UIViewController {
                 nextView.modalTransitionStyle = .crossDissolve
                 self.present(nextView, animated: true, completion: nil)
             }
+        })
+    }
+    
+    // MARK: - Helpers
+
+    func setPosition() {
+        minsLabel.snp.makeConstraints({ make in
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalTo(setLabel.snp.trailing).offset(20)
+        })
+        secLabel.snp.makeConstraints({ make in
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalTo(minsLabel.snp.trailing).offset(8)
+        })
+        sectionLabel.snp.makeConstraints({ make in
+            make.top.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        })
+        setLabel.snp.makeConstraints({ make in
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(20)
+        })
+        resetButton.snp.makeConstraints({ make in
+            make.width.equalTo(70)
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(20)
         })
     }
 }
