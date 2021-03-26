@@ -5,8 +5,8 @@
 //  Created by 山口雅之 on 2021/03/26.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 class Congrats: UIViewController {
     
@@ -53,8 +53,6 @@ class Congrats: UIViewController {
         setPosition()
     }
     
-    // MARK: - Actions
-    
     // MARK: - Helpers
     
     func setPosition() {
@@ -63,11 +61,11 @@ class Congrats: UIViewController {
             make.centerX.equalToSuperview()
         })
         paraLabel.snp.makeConstraints({ make in
-            make.centerY.equalToSuperview().offset(-40)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
         })
         para2Label.snp.makeConstraints({ make in
-            make.centerY.equalToSuperview().offset(-30)
+            make.top.equalTo(paraLabel.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
         })
     }

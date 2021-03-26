@@ -5,8 +5,9 @@
 //  Created by 山口雅之 on 2021/03/22.
 //
 
-import UIKit
 import SnapKit
+import SoftUIView
+import UIKit
 
 class ViewController: UIViewController {
     

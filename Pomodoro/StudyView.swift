@@ -5,8 +5,9 @@
 //  Created by 山口雅之 on 2021/03/22.
 //
 
-import UIKit
 import AVFoundation
+import SnapKit
+import UIKit
 
 class StudyView: UIViewController {
     
@@ -136,10 +137,15 @@ class StudyView: UIViewController {
             if self.currentTime == 3 { self.fireSound() }
             
             if self.currentTime == 0 {
-                //                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
-                self.currentTime = 5
-                timer.invalidate()
-                self.goToNext()
+                if ViewController.setCount == 9 {
+                    self.present(Congrats(), animated: true, completion: nil)
+                    timer.invalidate()
+                } else {
+                    //                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
+                    self.currentTime = 5
+                    timer.invalidate()
+                    self.goToNext()
+                }
             }
         })
     }
