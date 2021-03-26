@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.text = "Pomodoro Timer"
         label.font = UIFont.boldSystemFont(ofSize: 68)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -40,7 +39,6 @@ class ViewController: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(goToNext(_:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -54,7 +52,6 @@ class ViewController: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(goToSetting(_:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     

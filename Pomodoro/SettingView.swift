@@ -23,7 +23,6 @@ class SettingView: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(goBack(_:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -37,7 +36,6 @@ class SettingView: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(mode25), for: .touchDown)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -51,7 +49,6 @@ class SettingView: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(mode50), for: .touchDown)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     

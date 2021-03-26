@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F5B76AF260E0F290066DDD0 /* CongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5B76AE260E0F290066DDD0 /* CongratsView.swift */; };
 		2F6427DB260C6EA400BFF153 /* zihou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F6427DA260C6EA400BFF153 /* zihou.mp3 */; };
 		2FA043A726085F0B000639EC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A626085F0B000639EC /* Colors.swift */; };
 		2FA043AA2608648C000639EC /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA043A92608648C000639EC /* StudyView.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		2231EC2289751D1B3146CD7F /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
 		2F4E784D2609D23C008F5C88 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2F5B76AE260E0F290066DDD0 /* CongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsView.swift; sourceTree = "<group>"; };
 		2F6427DA260C6EA400BFF153 /* zihou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zihou.mp3; sourceTree = "<group>"; };
 		2FA043A626085F0B000639EC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2FA043A92608648C000639EC /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				2FB36FBA2608A04E00D62C31 /* BreakView.swift */,
 				2FA043A626085F0B000639EC /* Colors.swift */,
 				2FA043A92608648C000639EC /* StudyView.swift */,
+				2F5B76AE260E0F290066DDD0 /* CongratsView.swift */,
 				2F4E784D2609D23C008F5C88 /* README.md */,
 				2FA043AC26088202000639EC /* SettingView.swift */,
 				2FB1BBD7260834D5007D74C7 /* Assets.xcassets */,
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA043AA2608648C000639EC /* StudyView.swift in Sources */,
+				2F5B76AF260E0F290066DDD0 /* CongratsView.swift in Sources */,
 				2FA043A726085F0B000639EC /* Colors.swift in Sources */,
 				2FB36FBB2608A04E00D62C31 /* BreakView.swift in Sources */,
 				2FB1BBD3260834D3007D74C7 /* ViewController.swift in Sources */,

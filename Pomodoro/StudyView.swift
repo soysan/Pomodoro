@@ -23,7 +23,6 @@ class StudyView: UIViewController {
         let label = UILabel()
         label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -31,7 +30,6 @@ class StudyView: UIViewController {
         let label = UILabel()
         label.text = "Concentration"
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -39,7 +37,6 @@ class StudyView: UIViewController {
         let label = UILabel()
         label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -47,7 +44,6 @@ class StudyView: UIViewController {
         let label = UILabel()
         label.text = "00"
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -61,7 +57,6 @@ class StudyView: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
         button.addTarget(self, action: #selector(goToTop(_:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
