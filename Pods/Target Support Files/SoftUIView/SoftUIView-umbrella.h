@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double EMTNeumorphicViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char EMTNeumorphicViewVersionString[];
+FOUNDATION_EXPORT double SoftUIViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char SoftUIViewVersionString[];
 

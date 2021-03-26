@@ -14,11 +14,11 @@ class BreakView: UIViewController {
     let colors = Colors()
     
     var timer = Timer()
-//    var currentTime = ViewController.is_50mins ? 600 : 300;
+    //    var currentTime = ViewController.is_50mins ? 600 : 300;
     var currentTime = 5
     
     let setLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = " / 10"
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +58,7 @@ class BreakView: UIViewController {
         button.layer.shadowRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
-        button.addTarget(self, action: #selector(goBack(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToTop(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -67,7 +67,7 @@ class BreakView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = colors.yellow
         
         view.addSubview(sectionLabel)
@@ -90,6 +90,10 @@ class BreakView: UIViewController {
         
         setPosition()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         updateTime()
@@ -99,10 +103,12 @@ class BreakView: UIViewController {
     // MARK: - Actions
     
     @objc
-    func goBack(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    func goToTop(_ sender: UIButton) {
+        self.navigationController?.hidesBarsOnTap = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.popToRootViewController(animated: true)
     }
-
+    
     func updateTime() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             self.currentTime -= 1
@@ -113,17 +119,23 @@ class BreakView: UIViewController {
             self.secLabel.text = currentSec < 10 ? ": 0" + String(currentSec) : ": " + String(currentSec);
             
             if self.currentTime == 0 {
-//                self.currentTime = ViewController.is_50mins ? 600 : 300;
+                //                self.currentTime = ViewController.is_50mins ? 600 : 300;
                 self.currentTime = 5
                 timer.invalidate()
                 ViewController.setCount += 1
-                self.dismiss(animated: true, completion: nil)
+                self.goBack()
             }
         })
     }
     
+    func goBack() {
+        self.navigationController?.hidesBarsOnTap = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Helpers
-
+    
     func setPosition() {
         minsLabel.snp.makeConstraints({ make in
             make.bottom.equalToSuperview().offset(-20)

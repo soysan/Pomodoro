@@ -16,9 +16,9 @@ class StudyView: UIViewController {
     var avPlayer: AVAudioPlayer!
     
     var timer = Timer()
-//    var currentTime = ViewController.is_50mins ? 3000 : 1500;
+    //    var currentTime = ViewController.is_50mins ? 3000 : 1500;
     var currentTime = 5
-
+    
     let setLabel: UILabel = {
         let label = UILabel()
         label.text = ""
@@ -60,8 +60,7 @@ class StudyView: UIViewController {
         button.layer.shadowRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
-        // MARK: Breakの方もだがresetを押すとwindow hierarchyエラーになる。(データを消せないか？）
-        button.addTarget(self, action: #selector(goBack(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToTop(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -93,6 +92,10 @@ class StudyView: UIViewController {
         
         setPosition()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         setLabel.text = String(ViewController.setCount) + " / 10"
@@ -106,8 +109,10 @@ class StudyView: UIViewController {
     // MARK: - Actions
     
     @objc
-    func goBack(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    func goToTop(_ sender: UIButton) {
+        self.navigationController?.hidesBarsOnTap = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func fireSound() {
@@ -136,19 +141,22 @@ class StudyView: UIViewController {
             if self.currentTime == 3 { self.fireSound() }
             
             if self.currentTime == 0 {
-//                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
+                //                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
                 self.currentTime = 5
                 timer.invalidate()
-                let nextView = BreakView()
-                nextView.modalPresentationStyle = .fullScreen
-                nextView.modalTransitionStyle = .crossDissolve
-                self.present(nextView, animated: true, completion: nil)
+                self.goToNext()
             }
         })
     }
     
+    func goToNext() {
+        let nextView = BreakView()
+        self.navigationController?.hidesBarsOnTap = false
+        self.navigationController?.pushViewController(nextView, animated: true)
+    }
+    
     // MARK: - Helpers
-
+    
     func setPosition() {
         minsLabel.snp.makeConstraints({ make in
             make.bottom.equalToSuperview().offset(-20)

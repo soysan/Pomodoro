@@ -55,7 +55,6 @@
 				5637DEDD128A42085F5435B4 /* Pods-Pomodoro.debug.xcconfig */,
 				2231EC2289751D1B3146CD7F /* Pods-Pomodoro.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

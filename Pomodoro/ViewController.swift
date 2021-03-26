@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     static var setCount = 1
     static var is_50mins = false
-
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Pomodoro Timer"
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         button.layer.shadowRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 10, height: 10)
-        button.addTarget(self, action: #selector(startTimer(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToNext(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     }()
     
     // MARK: - LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,19 +78,26 @@ class ViewController: UIViewController {
         
         setPosition()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         ViewController.setCount = 1
-     }
+    }
     
     // MARK: - Actions
     
     @objc
-    func startTimer(_ sender: UIButton) {
+    func goToNext(_ sender: UIButton) {
         let nextView = StudyView()
-        nextView.modalPresentationStyle = .fullScreen
-        nextView.modalTransitionStyle = .crossDissolve
-        present(nextView, animated: true, completion: nil)
+        self.navigationController?.hidesBarsOnTap = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
+    
     
     @objc
     func goToSetting(_ sender: UIButton) {
