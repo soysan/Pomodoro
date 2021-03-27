@@ -6,7 +6,6 @@
 //
 
 import SnapKit
-import SoftUIView
 import UIKit
 
 class ViewController: UIViewController {
@@ -22,6 +21,12 @@ class ViewController: UIViewController {
     
     static var setCount = 1
     static var is_50mins = false
+    
+    let image: UIImageView = {
+        let logo = UIImage(named: "logo")?.resized(toWidth: 60)
+        let image = UIImageView(image: logo)
+        return image
+    }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -62,6 +67,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = colors.deepBlue
+        
+        view.addSubview(image)
         
         view.addSubview(titleLabel)
         titleLabel.textColor = colors.yellow
@@ -108,8 +115,12 @@ class ViewController: UIViewController {
     // MARK: - Helpers
     
     func setPosition() {
+        image.snp.makeConstraints({ make in
+            make.leading.equalTo(150)
+            make.centerY.equalToSuperview().offset(-60)
+        })
         titleLabel.snp.makeConstraints({ make in
-            make.centerX.equalToSuperview()
+            make.leading.equalTo(image.snp.trailing).offset(20)
             make.centerY.equalToSuperview().offset(-60)
         })
         startButton.snp.makeConstraints({ make in
@@ -125,3 +136,12 @@ class ViewController: UIViewController {
     }
 }
 
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
