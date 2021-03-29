@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - ScreenDirection
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
+//    // MARK: - ScreenDirection
+//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//        return .landscape
+//    }
     
     // MARK: - Properties
     
@@ -21,12 +21,6 @@ class ViewController: UIViewController {
     
     static var setCount = 1
     static var is_50mins = false
-    
-    let image: UIImageView = {
-        let logo = UIImage(named: "logo")?.resized(toWidth: 60)
-        let image = UIImageView(image: logo)
-        return image
-    }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -67,9 +61,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = colors.deepBlue
-        
-        view.addSubview(image)
-        
+
         view.addSubview(titleLabel)
         titleLabel.textColor = colors.yellow
         
@@ -115,12 +107,8 @@ class ViewController: UIViewController {
     // MARK: - Helpers
     
     func setPosition() {
-        image.snp.makeConstraints({ make in
-            make.leading.equalTo(150)
-            make.centerY.equalToSuperview().offset(-60)
-        })
         titleLabel.snp.makeConstraints({ make in
-            make.leading.equalTo(image.snp.trailing).offset(20)
+            make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-60)
         })
         startButton.snp.makeConstraints({ make in

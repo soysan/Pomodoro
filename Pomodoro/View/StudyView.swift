@@ -2,7 +2,7 @@
 //  StudyView.swift
 //  Pomodoro
 //
-//  Created by 山口雅之 on 2021/03/22.
+//  Created by Masayuki Yamaguchi on 2021/03/22.
 //
 
 import AVFoundation
@@ -17,8 +17,7 @@ class StudyView: UIViewController {
     var avPlayer: AVAudioPlayer!
     
     var timer = Timer()
-    //    var currentTime = ViewController.is_50mins ? 3000 : 1500;
-    var currentTime = 5
+    var currentTime = ViewController.is_50mins ? 3000 : 1500;
     
     let setLabel: UILabel = {
         let label = UILabel()
@@ -141,8 +140,7 @@ class StudyView: UIViewController {
                     self.present(Congrats(), animated: true, completion: nil)
                     timer.invalidate()
                 } else {
-                    //                self.currentTime = ViewController.is_50mins ? 3000 : 1500;
-                    self.currentTime = 5
+                    self.currentTime = ViewController.is_50mins ? 3000 : 1500;
                     timer.invalidate()
                     self.goToNext()
                 }

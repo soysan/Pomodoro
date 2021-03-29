@@ -2,7 +2,7 @@
 //  BreakView.swift
 //  Pomodoro
 //
-//  Created by 山口雅之 on 2021/03/22.
+//  Created by Masayuki Yamaguchi on 2021/03/22.
 //
 
 import AVFoundation
@@ -17,8 +17,7 @@ class BreakView: UIViewController {
     var avPlayer: AVAudioPlayer!
     
     var timer = Timer()
-    //    var currentTime = ViewController.is_50mins ? 600 : 300;
-    var currentTime = 5
+    var currentTime = ViewController.is_50mins ? 600 : 300;
     
     let setLabel: UILabel = {
         let label = UILabel()
@@ -133,8 +132,7 @@ class BreakView: UIViewController {
             if self.currentTime == 3 { self.fireSound() }
             
             if self.currentTime == 0 {
-                //                self.currentTime = ViewController.is_50mins ? 600 : 300;
-                self.currentTime = 5
+                self.currentTime = ViewController.is_50mins ? 600 : 300;
                 timer.invalidate()
                 ViewController.setCount += 1
                 self.goBack()

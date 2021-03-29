@@ -2,7 +2,7 @@
 //  SettingView.swift
 //  Pomodoro
 //
-//  Created by 山口雅之 on 2021/03/22.
+//  Created by Masayuki Yamaguchi on 2021/03/22.
 //
 
 import UIKit
@@ -30,6 +30,7 @@ class SettingView: UIViewController {
         let button = UIButton()
         button.setTitle("25minites / 5minites", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.layer.cornerRadius = 20
         button.layer.shadowOpacity = 0.5
         button.layer.shadowRadius = 10
@@ -43,6 +44,7 @@ class SettingView: UIViewController {
         let button = UIButton()
         button.setTitle("50minites / 10minites", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.layer.cornerRadius = 20
         button.layer.shadowOpacity = 0.5
         button.layer.shadowRadius = 10

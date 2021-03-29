@@ -60,6 +60,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2F334A4B26108E340017D582 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FB36FBA2608A04E00D62C31 /* BreakView.swift */,
+				2FA043A92608648C000639EC /* StudyView.swift */,
+				2FA043AC26088202000639EC /* SettingView.swift */,
+				2F5B76AE260E0F290066DDD0 /* CongratsView.swift */,
+				2FB1BBD2260834D3007D74C7 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F334A4D2610947E0017D582 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FA043A626085F0B000639EC /* Colors.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F334A4E2610948C0017D582 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2F6427D9260C6E8E00BFF153 /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,13 +120,10 @@
 			children = (
 				2FB1BBCE260834D3007D74C7 /* AppDelegate.swift */,
 				2FB1BBD0260834D3007D74C7 /* SceneDelegate.swift */,
-				2FB1BBD2260834D3007D74C7 /* ViewController.swift */,
-				2FB36FBA2608A04E00D62C31 /* BreakView.swift */,
-				2FA043A626085F0B000639EC /* Colors.swift */,
-				2FA043A92608648C000639EC /* StudyView.swift */,
-				2F5B76AE260E0F290066DDD0 /* CongratsView.swift */,
+				2F334A4E2610948C0017D582 /* Controller */,
+				2F334A4D2610947E0017D582 /* Model */,
+				2F334A4B26108E340017D582 /* View */,
 				2F4E784D2609D23C008F5C88 /* README.md */,
-				2FA043AC26088202000639EC /* SettingView.swift */,
 				2FB1BBD7260834D5007D74C7 /* Assets.xcassets */,
 				2FB1BBDC260834D5007D74C7 /* Info.plist */,
 			);
@@ -389,7 +413,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtMasa.Pomodoro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masaMt.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -410,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtMasa.Pomodoro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masaMt.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
