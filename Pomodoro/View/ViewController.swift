@@ -2,19 +2,14 @@
 //  ViewController.swift
 //  Pomodoro
 //
-//  Created by 山口雅之 on 2021/03/22.
+//  Created by Masayuki Yamaguchi on 2021/03/22.
 //
 
 import SnapKit
 import UIKit
 
 class ViewController: UIViewController {
-    
-//    // MARK: - ScreenDirection
-//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//        return .landscape
-//    }
-    
+
     // MARK: - Properties
     
     let colors = Colors()
